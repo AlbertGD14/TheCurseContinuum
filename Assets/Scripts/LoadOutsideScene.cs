@@ -8,7 +8,7 @@ public class LoadOutsideScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SceneManager.LoadScene("Outside", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame
@@ -16,13 +16,15 @@ public class LoadOutsideScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(SceneManager.GetActiveScene().buildIndex == 0)
+            Scene scene = SceneManager.GetSceneByName("Outside");
+
+            if (scene.IsValid() && scene.isLoaded)
             {
-                SceneManager.LoadScene("Outside", LoadSceneMode.Additive);
+                SceneManager.UnloadScene("Outside");
             }
             else
             {
-                SceneManager.LoadScene("Scene");
+                SceneManager.LoadScene("Outside", LoadSceneMode.Additive);
             }
         }
     }

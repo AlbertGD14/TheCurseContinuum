@@ -8,7 +8,7 @@ public class LoadOutsideScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("Outside", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Mummy_Scene", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame
